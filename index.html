@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Carte Santé Interactive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <input type="text" id="codePostal" placeholder="Entrer un code postal" />
+    <button id="btnRecherche">Rechercher</button>
+  </header>
+
+  <div id="main">
+    <aside id="filters">
+      <h2>Santé</h2>
+      <label><input type="checkbox" value="medecin" checked /> Médecins</label><br>
+      <label><input type="checkbox" value="pharmacie" checked /> Pharmacies</label><br>
+      <label><input type="checkbox" value="hopital" checked /> Hôpitaux</label><br>
+    </aside>
+
+    <div id="map"></div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script/script.js"></script>
+</body>
+</html>
