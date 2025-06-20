@@ -13,10 +13,11 @@ export function centerMap(lat, lng) {
 }
 
 export async function loadData() {
-  const response = await fetch('data/etabs_test.json');
+  const response = await fetch('data/etabs.json');
   const data = await response.json();
   displayMarkers(data);
 }
+
 
 export function displayMarkers(data) {
   clearMarkers();
@@ -27,12 +28,22 @@ export function displayMarkers(data) {
   data.forEach(etab => {
     if (!activeFilters.includes(etab.type)) return;
 
-    const marker = L.marker([etab.lat, etab.lng]).addTo(map)
-      .bindPopup(`<strong>${etab.nom}</strong><br>${etab.adresse}<br><em>${etab.type}</em>`);
+    const lat = etab.geoloc_4326_lat;
+    const lng = etab.geoloc_4326_long;
+
+    if (!lat || !lng) return;
+
+    const nom = etab.et_rs || "Établissement inconnu";
+    const adresse = etab.adresse || "Adresse non renseignée";
+    const type = etab.type || "Type inconnu";
+
+    const marker = L.marker([lat, lng]).addTo(map)
+      .bindPopup(`<strong>${nom}</strong><br>${adresse}<br><em>${type}</em>`);
 
     allMarkers.push(marker);
   });
 }
+
 
 function clearMarkers() {
   allMarkers.forEach(marker => map.removeLayer(marker));
