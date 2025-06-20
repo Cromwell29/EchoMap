@@ -10,8 +10,11 @@
 </head>
 <body>
 <header>
-
-
+  <div class="autocomplete-container">
+    <input type="text" id="searchInput" placeholder="Commune ou code postal...">
+    <div id="autocompleteResults" class="autocomplete-results"></div>
+  </div>
+  <button id="btnRecherche">Rechercher</button>
 </header>
 
 
@@ -23,12 +26,7 @@
       <label><input type="checkbox" value="pharmacie" checked /> Pharmacies</label><br>
       <label><input type="checkbox" value="hopital" checked /> Hôpitaux</label><br>
     </aside>
-  <div class="autocomplete-container">
-    <input type="text" id="searchInput" placeholder="Commune ou code postal...">
-    <div id="autocompleteResults" class="autocomplete-results"></div>
-  </div>
-  <button id="btnRecherche">Rechercher</button>
-  </div>
+
     <div id="map"></div>
   </div>
 
