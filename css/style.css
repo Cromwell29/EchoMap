@@ -16,33 +16,34 @@ header {
   padding: 10px;
   background-color: #f5f5f5;
   border-bottom: 1px solid #ccc;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
-}
-
-header input {
-  flex: 1;
-  padding: 8px;
-  font-size: 16px;
+  flex-wrap: wrap;
 }
 
 header button {
   padding: 8px 12px;
   font-size: 16px;
+  height: 40px;
   cursor: pointer;
 }
 
 .autocomplete-container {
   position: relative;
   width: 300px;
+  flex-grow: 1;
+  min-width: 250px;
 }
 
 #searchInput {
   width: 100%;
   padding: 8px;
   font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
+/* Dropdown personnalisé */
 .autocomplete-results {
   position: absolute;
   top: 100%;
@@ -50,6 +51,8 @@ header button {
   right: 0;
   background: white;
   border: 1px solid #ccc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
   max-height: 200px;
   overflow-y: auto;
   z-index: 1000;
@@ -57,19 +60,24 @@ header button {
 }
 
 .autocomplete-item {
-  padding: 8px;
+  padding: 10px 12px;
   cursor: pointer;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.autocomplete-item:last-child {
+  border-bottom: none;
 }
 
 .autocomplete-item:hover {
   background-color: #f0f0f0;
 }
 
-
 /* Disposition principale */
 #main {
   display: flex;
-  height: calc(100% - 50px); /* en-dessous du header */
+  height: calc(100% - 50px); /* sous le header */
 }
 
 /* Sidebar filtres */
@@ -110,5 +118,14 @@ header button {
 
   #map {
     height: calc(100vh - 150px);
+  }
+
+  header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #searchInput, header button {
+    width: 100%;
   }
 }
