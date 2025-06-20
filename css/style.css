@@ -19,6 +19,8 @@ header {
   align-items: flex-start;
   gap: 10px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
 }
 
 header button {
@@ -33,6 +35,7 @@ header button {
   width: 300px;
   flex-grow: 1;
   min-width: 250px;
+  z-index: 1001; /* supérieur à la carte et aux boutons */
 }
 
 #searchInput {
@@ -47,16 +50,17 @@ header button {
 .autocomplete-results {
   position: absolute;
   top: 100%;
-  left: 0;
   right: 0;
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
   border: 1px solid #ccc;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   max-height: 200px;
   overflow-y: auto;
-  z-index: 1000;
+  z-index: 1002;
   display: none;
+  width: 100%;
 }
 
 .autocomplete-item {
@@ -86,6 +90,7 @@ header button {
   padding: 15px;
   background-color: #fafafa;
   border-right: 1px solid #ddd;
+  z-index: 1;
 }
 
 #filters h2 {
@@ -102,6 +107,7 @@ header button {
 #map {
   flex: 1;
   height: 100%;
+  z-index: 0;
 }
 
 /* Responsive */
@@ -127,5 +133,11 @@ header button {
 
   #searchInput, header button {
     width: 100%;
+  }
+
+  .autocomplete-results {
+    width: 100%;
+    left: 0;
+    right: auto;
   }
 }
