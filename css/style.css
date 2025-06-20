@@ -32,11 +32,39 @@ header button {
   cursor: pointer;
 }
 
-#selectCommune {
+.autocomplete-container {
+  position: relative;
+  width: 300px;
+}
+
+#searchInput {
+  width: 100%;
   padding: 8px;
   font-size: 16px;
-  margin-left: 5px;
 }
+
+.autocomplete-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+.autocomplete-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.autocomplete-item:hover {
+  background-color: #f0f0f0;
+}
+
 
 /* Disposition principale */
 #main {

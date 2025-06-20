@@ -10,10 +10,13 @@
 </head>
 <body>
 <header>
-<input type="text" id="codePostal" placeholder="Code postal ou commune">
-<button id="btnRecherche">Rechercher</button>
-<select id="communeSelect" style="display:none; margin-top:10px;"></select>
+  <div class="autocomplete-container">
+    <input type="text" id="searchInput" placeholder="Commune ou code postal...">
+    <div id="autocompleteResults" class="autocomplete-results"></div>
+  </div>
+  <button id="btnRecherche">Rechercher</button>
 </header>
+
 
 
   <div id="main">
